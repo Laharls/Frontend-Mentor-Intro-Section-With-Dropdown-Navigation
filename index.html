@@ -6,6 +6,10 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@800&display=swap" rel="stylesheet"> 
   
   <title>Frontend Mentor | Intro section with dropdown navigation</title>
 
@@ -22,42 +26,12 @@
         <img src="./images/icon-menu.svg" alt="Open Menu">
       </a>
 
-      <div class="overlay">
-        <div class="mobile-nav">
-          <img src="./images/icon-close-menu.svg" alt="Close Menu">
-          <div class="mobile-nav-con">
-            <div class="dropdown">
-              <div class="dropbtn">
-                Features <img src="./images/icon-arrow-down.svg" alt="Arrow down">
-              </div>
-              <div class="dropdown-content">
-                <a href="#"><img src="./images/icon-todo.svg" alt="Icon TodoList">TodoList</a>
-                <a href="#"><img src="./images/icon-calendar.svg" alt="Icon Calendar">Calendar</a>
-                <a href="#"><img src="./images/icon-reminders.svg" alt="Icon Reminders">Reminders</a>
-                <a href="#"><img src="./images/icon-planning.svg" alt="Icon Planning">Planning</a>
-              </div>
-            </div>
-            <div class="dropdown">
-              <div class="dropbtn">
-                Company <img src="./images/icon-arrow-down.svg" alt="Arrow down">
-              </div>
-              <div class="dropdown-content">
-                <a href="#">History</a>
-                <a href="#">Our Team</a>
-                <a href="#">Blog</a>
-              </div>
-            </div>
-          </div>
-
-          <a href="#">Careers</a>
-          <a href="#">About</a>
-        </div>
-      </div>
+      
 
       <div class="nav-ul">
         <div class="dropdown">
           <div class="dropbtn">
-            Features <img src="./images/icon-arrow-down.svg" alt="Arrow down">
+            <p>Features</p> <img src="./images/icon-arrow-down.svg" alt="Arrow down">
           </div>
           <div class="dropdown-content">
             <a href="#"><img src="./images/icon-todo.svg" alt="Icon TodoList">TodoList</a>
@@ -69,23 +43,61 @@
 
         <div class="dropdown">
           <div class="dropbtn">
-            Company <img src="./images/icon-arrow-down.svg" alt="Arrow down">
+            <p>Company</p> <img src="./images/icon-arrow-down.svg" alt="Arrow down">
           </div>
           <div class="dropdown-content">
             <a href="#">History</a>
-            <a href="#">Our Team</a>
+            <a href="#">Team</a>
             <a href="#">Blog</a>
           </div>
         </div>
+        <a href="#">Careers</a>
+        <a href="#">About</a>
       </div>
 
-      <a href="#">Careers</a>
-      <a href="#">About</a>
-      <div class="nav-btn">
+      
+      <div class="nav-btns">
         <button>Login</button>
         <button>Register</button>
       </div>
     </nav>
+
+    <div class="overlay">
+      <div class="mobile-nav">
+        <img src="./images/icon-close-menu.svg" id="close-menu" alt="Close Menu">
+        <div class="mobile-nav-con">
+          <div class="dropdown">
+            <div class="dropbtn">
+              Features <img src="./images/icon-arrow-down.svg" alt="Arrow down">
+            </div>
+            <div class="dropdown-content">
+              <a href="#"><img src="./images/icon-todo.svg" alt="Icon TodoList">TodoList</a>
+              <a href="#"><img src="./images/icon-calendar.svg" alt="Icon Calendar">Calendar</a>
+              <a href="#"><img src="./images/icon-reminders.svg" alt="Icon Reminders">Reminders</a>
+              <a href="#"><img src="./images/icon-planning.svg" alt="Icon Planning">Planning</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <div class="dropbtn">
+              Company <img src="./images/icon-arrow-down.svg" alt="Arrow down">
+            </div>
+            <div class="dropdown-content">
+              <a href="#">History</a>
+              <a href="#">Our Team</a>
+              <a href="#">Blog</a>
+            </div>
+          </div>
+          <a href="#">Careers</a>
+          <a href="#">About</a>
+
+          <div class="nav-btns">
+            <button>Login</button>
+            <button>Register</button>
+          </div>
+        </div>
+       
+      </div>
+    </div>
   </header>
 
   <div class="hero">
@@ -93,12 +105,12 @@
       <h1>Make <br/> remote work</h1>
       <p>Get your team to sync, no matter your location. Streamline processes,create team rituals, and watch productivity soar.</p>
 
-      <button>Learn More</button>
+      <button class="hero_button">Learn More</button>
       <div class="logos">
         <img src="images/client-databiz.svg" alt="Client logo databiz">
         <img src="images/client-audiophile.svg" alt="Client logo audiophile">
-        <img src="images/client-maker.svg" alt="Client logo maker">
         <img src="images/client-meet.svg" alt="Client logo meet">
+        <img src="images/client-maker.svg" alt="Client logo maker">
       </div>
     </div>
 
@@ -106,6 +118,21 @@
       <img src="./images/image-hero-desktop.png" id="hero_img" alt="Hero image desktop">
     </div>
   </div>
+
+  <script>
+    const ham = document.querySelector(".ham")
+
+    ham.addEventListener("click", e => {
+      document.querySelector('.mobile-nav').classList.add('show');
+      document.querySelector('.overlay').style.display = "block";
+      document.body.classList.add(".lock");
+    })
+    document.querySelector('#close-menu').addEventListener("click", e => {
+      document.querySelector('.mobile-nav').classList.remove('show');
+      document.querySelector('.overlay').style.display = "none";
+      document.body.classList.remove(".lock");
+    })
+  </script>
   
 </body>
 </html>

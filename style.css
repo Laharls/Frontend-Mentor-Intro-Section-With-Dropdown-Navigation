@@ -1,3 +1,5 @@
+
+
 :root {
     --neutral-almost-white: hsl(0, 0%, 98%);
     --neutral-medium-gray: hsl(0, 0%, 41%);
@@ -7,6 +9,7 @@
 @font-face {
     font-family: "Epilogue";
     src: url("https://fonts.google.com/specimen/Epilogue");
+    font-weight: 800;
 }
 
 .nav-ul {
@@ -16,10 +19,35 @@
     align-items: center;
 }
 
+.brand{
+    margin-left: 20px;
+}
+
+.nav-ul p{
+    display: inline;
+}
+
+p{
+    color: var(--neutral-medium-gray);
+    font-size: 18px;
+}
+
+.lock{
+    overflow: hidden;
+}
+
+.nav-btns{
+    margin-left: auto;
+    margin-right: 20px;
+}
+
 .nav-btns button:nth-child(1){
     border: none;
     outline: none;
     background-color: transparent;
+    color: var(--neutral-medium-gray);
+    cursor: pointer;
+    margin-right: 2rem;
 }
 
 .nav-btns button:nth-child(2){
@@ -28,6 +56,8 @@
     padding: 10px 25px;
     border-radius: 10px;
     border: 1px solid var(--neutral-almost-black);
+    color: var(--neutral-medium-gray);
+    cursor: pointer;
 }
 
 
@@ -49,12 +79,13 @@ a{
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
 .dropdown{
     position: relative;
     display: inline-block;
+    margin: 0 20px;
 }
 
 .dropdown-content{
@@ -71,12 +102,13 @@ nav {
 h1{
     font-size: 70px;
     width: 500px;
+    font-family: "Epilogue";
 }
 
 .hero {
     display: grid;
     grid-template-columns: repeat(2, 450px);
-    gap: 80px;
+    gap: 150px;
     max-width: 1200px;
     justify-content: center;
     align-items: center;
@@ -85,6 +117,7 @@ h1{
 
 .img-container img{
     width: 100%;
+    margin-top: 60px;
 }
 
 .logos{
@@ -104,6 +137,7 @@ h1{
     border-radius: 10px;
     font-size: 15px;
     transition: all 1s;
+    font-family: "Epilogue";
 }
 
 .hero_button:hover{
@@ -116,11 +150,11 @@ h1{
 }
 
 .dropdown-content a{
-    color: var(--neutral-almost-black);
+    color: var(--neutral-medium-gray);
     padding: 10px 12px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .dropdown-content img{
@@ -134,4 +168,108 @@ h1{
 
 .dropdown:hover .dropdown-content{
     display: block;
+}
+
+@media screen and (max-width: 1200px){
+    .hero{
+        max-width: 960px;
+        grid-template-columns: repeat(2,400px);
+        gap: 110px;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .nav-btns{
+        display: none;
+    }
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .nav-ul{
+        display: none;
+    }
+    .ham{
+        display: block;
+    }
+    .hero{
+        margin: 50px;
+        max-width: 960px;
+        grid-template-columns: repeat(1, max(200px, 350px));
+    }
+    .img-container{
+        grid-row: 1;
+    }
+    .img-container img{
+        content: url("images/image-hero-mobile.png");
+        width: 100%;
+    }
+
+    .hero-text{
+        text-align: center;
+    }
+
+    .hero_button{
+        margin: 0;
+    }
+
+    h1{
+        font-size: 30px;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        font-family: "Epilogue";
+    }
+
+    br{
+        display: none;
+    }
+
+    .overlay{
+        display: none;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 0;
+    }
+
+    .show{
+        display: flex;
+    }
+
+    .mobile-nav{
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: var(--neutral-almost-white);
+        padding: 20px;
+        width: 180px;
+        height: 100vh;
+        align-items: flex-end;
+        text-align: center;
+    }
+
+    .mobile-nav img{
+        text-align: right;
+    }
+
+    .mobile-nav-con{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: end;
+    }
+
+    a{
+        margin: 0;
+    }
+
+    .mobile-nav-con > * {
+        padding: 20px;
+    }
 }
